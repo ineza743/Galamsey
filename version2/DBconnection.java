@@ -38,6 +38,7 @@ public class DBconnection {
              * Demo on how data can be inserted manually into galamsey table
              */
             //executing the querry
+<<<<<<< HEAD
 
             String sql0= "Insert into Observatory (observatoryName, country, yearofObservation , area)" + "values (?,?,?,?)";
             PreparedStatement p0 = conn.prepareStatement(sql0);
@@ -51,6 +52,11 @@ public class DBconnection {
             String sql= "Insert into Galamsey (GalamseyId, GalamseyName, vegetationColor, Year_of_event,latitude,longitude, observatoryId)" + "values (?,?,?,?,?,?,?)";
             PreparedStatement p = conn.prepareStatement(sql);
             p.setInt(1,129);
+=======
+            String sql= "Insert into Galamsey (GalamseyId, GalamseyName, vegetationColor, Year_of_event,latitude,longitude, observatoryId)" + "values (?,?,?,?,?,?,?)";
+            PreparedStatement p = conn.prepareStatement(sql);
+            p.setInt(1,127);
+>>>>>>> 1e864c3fc04527a8fba12f19c11e5ff6c0ce2c3b
             p.setString(2,"Galamsey2");
             p.setString(3,"brown");
             p.setInt(4, 2012);
@@ -77,3 +83,4 @@ public class DBconnection {
 
     }
 }
+
