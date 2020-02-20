@@ -21,4 +21,4 @@ The first page is a login page and the user name is     admin    while the passw
 
 the second page presents a menu with 4 buttons where the user can choose whichever he wants.
 
-Depending on which button clicked, the user can enter galamsey data, observatory data, show statistics or exit.
+Depending on which button clicked, the user can enter galamsey data, observatory data, View statistics or exit.
