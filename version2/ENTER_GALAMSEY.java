@@ -5,6 +5,7 @@ package version2;/*
  */
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -38,11 +39,14 @@ public class ENTER_GALAMSEY extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        JLabel jLabel15 = new JLabel();
+        jLabel5 = new javax.swing.JLabel();
         javax.swing.JButton addbutton = new javax.swing.JButton();
         javax.swing.JButton exitbutton = new javax.swing.JButton();
         namefeild = new javax.swing.JTextField();
         latitudefeild = new javax.swing.JTextField();
         logitudefeild = new javax.swing.JTextField();
+        observatoryid = new javax.swing.JTextField();
         vegetationcoverfeild = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,13 +58,16 @@ public class ENTER_GALAMSEY extends javax.swing.JFrame {
         jLabel1.setText("NAME");
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("LOGITUDE");
+        jLabel2.setText("LONGITUDE");
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("LATITUDE");
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("VEGETATION COLOR");
+
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("OBSERVATORY ID");
 
        // addbutton.setBackground(new java.awt.Color(200, 2, 2));
         //addbutton.setForeground(new java.awt.Color(255, 255, 255));
@@ -99,6 +106,8 @@ public class ENTER_GALAMSEY extends javax.swing.JFrame {
 
         vegetationcoverfeild.setText("");
 
+        observatoryid.setText("");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -107,12 +116,14 @@ public class ENTER_GALAMSEY extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
+                    .addComponent(jLabel5)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1))
                 .addGap(46, 46, 46)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(namefeild, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                     .addComponent(observatoryid)
                     .addComponent(logitudefeild)
                     .addComponent(latitudefeild)
                     .addComponent(vegetationcoverfeild))
@@ -131,14 +142,25 @@ public class ENTER_GALAMSEY extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(namefeild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+
+
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(logitudefeild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+
+
+
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(latitudefeild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+
+                 .addGap(24, 24, 24)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(observatoryid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+
                 .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4)
@@ -181,6 +203,7 @@ public class ENTER_GALAMSEY extends javax.swing.JFrame {
             System.out.println("Connecting to database...");
             conn = DriverManager.getConnection(DB_URL,USER,PASS);
             String name=namefeild.getText();
+            int observatory= Integer.parseInt(observatoryid.getText());
             String vegcolor=vegetationcoverfeild.getText();
             String latitude = latitudefeild.getText();
             String longitude = logitudefeild.getText();
@@ -188,13 +211,14 @@ public class ENTER_GALAMSEY extends javax.swing.JFrame {
 
 
             //executing the querry
-            String sql= "Insert into Galamsey ( GalamseyName, vegetationColor, Year_of_event, latitude,longitude)" + "values (?,?,?,?,?)";
+            String sql= "Insert into Galamsey ( GalamseyName, vegetationColor, Year_of_event, latitude, longitude, observatoryId)" + "values (?,?,?,?,?,?)";
             PreparedStatement p = conn.prepareStatement(sql);
             p.setString(1,name);
             p.setString(2,vegcolor);
             p.setInt(3, 2015);
             p.setString(4, latitude);
             p.setString(5, longitude);
+            p.setInt(6, observatory);
 
 
 
@@ -255,8 +279,10 @@ public class ENTER_GALAMSEY extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField latitudefeild;
+    private javax.swing.JTextField observatoryid;
     private javax.swing.JTextField logitudefeild;
     private javax.swing.JTextField namefeild;
     private javax.swing.JTextField vegetationcoverfeild;

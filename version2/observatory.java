@@ -196,14 +196,13 @@ public class observatory extends javax.swing.JFrame {
 
 
             //executing the querry
-            String sql= "Insert into Observatory (GalamseyId, observatoryName, country, yearofObservation , area)" + "values (?,?,?,?,?)";
+            String sql= "Insert into Observatory (observatoryName, country, yearofObservation , area)" + "values (?,?,?,?)";
             PreparedStatement p = conn.prepareStatement(sql);
 
-            p.setInt(1,112);
-            p.setString(2,name);
-            p.setString(3,country);
-            p.setInt(4,year);
-            p.setDouble(5, area);
+            p.setString(1,name);
+            p.setString(2,country);
+            p.setInt(3,year);
+            p.setDouble(4, area);
 
 
 

@@ -159,16 +159,16 @@ public class MonitoringSelection extends javax.swing.JFrame {
         try {
             java.sql.Statement stm = connect.createStatement();
             java.sql.ResultSet res = stm.executeQuery("SELECT * FROM Galamsey");
-            System.out.println("Here is what is in Galamsey table: (1:Galamsey id, 2:GalamseyName,3:vegetationColor,4:year,5:latitude,6:longitude)");
+            System.out.println("HERE IS WHAT IS IN GALAMSEY TABLE:\t (1:Galamsey id, 2:GalamseyName,3:vegetationColor,4:year,5:latitude,6:longitude, 7:observatoryId)\n");
             while (res.next()) {
-                System.out.println(res.getString("Galamseyid") + " \t" + res.getString("GalamseyName") + " \t" + res.getString("VegetationColor") + " \t" + res.getString("Year_of_event")+ " \t" +res.getString("latitude") + " \t"+ res.getString("longitude"));
+                System.out.println(res.getString("Galamseyid") + "\t \t " + res.getString("GalamseyName") + "\t\t " + res.getString("VegetationColor") + "\t\t " + res.getString("Year_of_event")+ "\t\t " +res.getString("latitude") + "\t\t "+ res.getString("longitude")+ "\t\t "+ res.getString("observatoryId"));
             }
 
             java.sql.Statement stm2 = connect.createStatement();
             java.sql.ResultSet res2 = stm.executeQuery("SELECT * FROM Observatory");
-            System.out.println("Here is what is in observatory table: (1:observatory id, 2: galamsey id, 3:observatory Name, 4:country, 5:year, 6:area)");
+            System.out.println("\nHERE IS WHAT IS IN OBSERVATORY TABLE:\t (1:observatory id, 3:observatory Name, 4:country, 5:year, 6:area)\n");
             while (res2.next()) {
-                System.out.println(res2.getString("observatoryid") + " \t" + res2.getString("Galamseyid") + " \t"+ res2.getString("observatoryName") + " \t" + res2.getString("country") + " \t" + res2.getString("yearofObservation")+ " \t" +res2.getString("area"));
+                System.out.println(res2.getString("observatoryid") + "\t\t "+ res2.getString("observatoryName") + "\t\t " + res2.getString("country") + "\t\t " + res2.getString("yearofObservation")+ "\t\t " +res2.getString("area"));
             }
 
             res2.close();

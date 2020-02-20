@@ -38,18 +38,30 @@ public class DBconnection {
              * Demo on how data can be inserted manually into galamsey table
              */
             //executing the querry
-            String sql= "Insert into Galamsey (GalamseyId, GalamseyName, vegetationColor, Year_of_event,latitude,longitude)" + "values (?,?,?,?,?,?)";
+
+            String sql0= "Insert into Observatory (observatoryName, country, yearofObservation , area)" + "values (?,?,?,?)";
+            PreparedStatement p0 = conn.prepareStatement(sql0);
+            p0.setString(1,"observatory1");
+            p0.setString(2,"Rwanda");
+            p0.setInt(3, 2010);
+            p0.setDouble(4,4.6);
+
+
+
+            String sql= "Insert into Galamsey (GalamseyId, GalamseyName, vegetationColor, Year_of_event,latitude,longitude, observatoryId)" + "values (?,?,?,?,?,?,?)";
             PreparedStatement p = conn.prepareStatement(sql);
-            p.setInt(1,126);
-            p.setString(2,"Galamsey1");
-            p.setString(3,"Green");
-            p.setInt(4, 2013);
+            p.setInt(1,129);
+            p.setString(2,"Galamsey2");
+            p.setString(3,"brown");
+            p.setInt(4, 2012);
             p.setString(5,"45E");
             p.setString(6,"65N");
+            p.setInt(7,1);
 
 
 
             System.out.println("Data has been added!!");
+            p0.execute();
             p.execute();
             conn.close();
 
