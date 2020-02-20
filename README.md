@@ -16,8 +16,6 @@ observatory class prompts the user to input galamsey values and immediately crea
 
 Monitoringselection class provides the user with a menu in a form of buttons to pick the service he wants and after display data from the database to the console when the user clicks on VIEW STATISTICS.
 
-SHOWSTATS prints data from the database to the console.
-
 Monitoring_Gui calls all of the above methods. 
 The first page is a login page and the user name is     admin    while the password is       1234
 
