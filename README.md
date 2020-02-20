@@ -8,7 +8,7 @@ all of these methods are called in monitoringIO2 because it is the only one that
 Version 2 contains 6 classes which are ENTER_Galamsey, Monitoringselection, observatory, SHOWSTATS, DBconnection, and Monitoring_Gui.
 These classes were generated using netbeans.
 
-DBconnection creates a connection to the database and manually enters data in the galamsey relation to test it. To connect to the database, you first have to download mysql connector and add it to your java libraries.
+DBconnection creates a connection to the database and manually enters data in the galamsey relation to test it. To connect to the database, you first have to download mysql connector and add it to your java libraries. Then create a database named Galamseys with two relations: galamsey and observatory in mysql.
 
 ENTER_Galamsey prompts the user to input galamsey values and immediately creates a connection to the database to store these information.
 
