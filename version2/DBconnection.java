@@ -3,7 +3,7 @@ package version2;
 
 /**
  * Mysql connection
- * connecting to Galamseys databbase
+ * connecting to Galamseys database
  */
 
 
