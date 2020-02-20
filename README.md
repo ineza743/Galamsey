@@ -1,4 +1,4 @@
-# Galamsey
+# Galamsey Project Guide
 There are two versions of this program.
 
 Version1 contains 4 classes which are position, galamsey, observatory, monitoring and monitoringIO2.
