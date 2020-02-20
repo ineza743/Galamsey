@@ -29,5 +29,4 @@ select * from Galamsey;
 
 show tables;
 
-drop table observatory;
 drop database Galamseys;
